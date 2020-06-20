@@ -69,8 +69,9 @@ app.route({
 
 const start = async () => {
   try {
-    await app.listen(3000);
-    app.log.info(`server listening on ${app.server.address().port}`);
+    const port = process.env.PORT || 3000;
+    await app.listen(port);
+    app.log.info(`server listening on ${port}`);
   } catch (err) {
     app.log.error(err);
     process.exit(1);
