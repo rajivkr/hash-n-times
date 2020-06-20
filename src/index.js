@@ -70,7 +70,7 @@ app.route({
 const start = async () => {
   try {
     const port = process.env.PORT || 3000;
-    await app.listen(port);
+    await app.listen(port, '0.0.0.0');
     app.log.info(`server listening on ${port}`);
   } catch (err) {
     app.log.error(err);
