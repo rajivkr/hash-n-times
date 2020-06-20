@@ -28,11 +28,6 @@ app.route({
   handler: (request, reply) => {
     const MAX_HASH_LIMIT = 1e5;
     const { initializationString, hashCount = MAX_HASH_LIMIT } = request.query;
-    if (hashCount > MAX_HASH_LIMIT) {
-      reply.send({
-        errorMsg: 'Limited the Hashing level to 10000',
-      });
-    }
     app.redis.get(
       `${initializationString}_${hashCount}`,
       async (err, value) => {
